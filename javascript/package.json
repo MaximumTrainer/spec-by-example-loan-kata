@@ -1,0 +1,32 @@
+{
+  "name": "given-when-then-js",
+  "version": "0.1.7",
+  "description": "Basic given when then test helper",
+  "main": "index.js",
+  "dependencies":{
+    "mocha": "2.4.5",
+    "chai": "3.5.0"
+  },
+  "scripts": {
+     "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabriel-deliu/given-when-then-js.git"
+  },
+  "keywords": [
+    "given",
+    "when",
+    "then",
+    "test"
+  ],
+  "author": { 
+    "name":"Gabriel Deliu",
+    "email": "dcgro@yahoo.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabriel-deliu/given-when-then-js/issues"
+  },
+  "homepage": "https://github.com/gabriel-deliu/given-when-then-js#readme"
+}

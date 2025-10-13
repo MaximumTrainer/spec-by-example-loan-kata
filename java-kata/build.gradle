@@ -1,0 +1,19 @@
+jar {
+    archiveBaseName = 'bank-account-kata-java'
+}
+
+dependencies {
+
+    testImplementation libs.test.junitApi,
+            libs.test.assertj,
+            libs.test.mockito
+
+    testRuntimeOnly libs.test.junitEngine,
+            libs.test.junitPlatform
+
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}

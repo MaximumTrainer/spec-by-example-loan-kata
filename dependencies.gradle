@@ -1,0 +1,20 @@
+ext {
+
+    gradlePlugins = [
+            pitest: "info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.15.0"
+    ]
+
+    libs = [
+
+            slf4j        : 'org.slf4j:slf4j-api:2.0.7',
+            logback      : 'ch.qos.logback:logback-classic:1.4.8',
+
+            test         : [
+                    junitApi        : 'org.junit.jupiter:junit-jupiter-api:5.13.4',
+                    junitEngine     : 'org.junit.jupiter:junit-jupiter-engine:5.13.4',
+                    junitPlatform   : 'org.junit.platform:junit-platform-launcher:1.13.4',
+                    mockito         : 'org.mockito:mockito-core:5.19.0',
+                    assertj         : 'org.assertj:assertj-core:3.27.4'
+            ]
+    ]
+}
