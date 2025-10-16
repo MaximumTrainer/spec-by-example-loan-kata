@@ -12,4 +12,10 @@ target/
 .project
 .settings/
 
+# dotnet
+**/.bin
+**/bin
+**/obj
+**/*.dll
+
 todo.txt
