@@ -18,7 +18,7 @@ class LoanPreQualifierTest {
 
 
     @Test
-    @DisplayName("Should approve valid application")
+    @DisplayName("Should approve valid application using test builder")
     void shouldApproveValidApplication() {
         given(aValidApplication().build())
             .when(LoanPreQualifier.preQualify())
@@ -28,6 +28,7 @@ class LoanPreQualifierTest {
     @Test
     @DisplayName("Should approve application meeting all criteria")
     void shouldApproveWhenAllCriteriaMet() {
+        // Given
         LoanApplication application = aValidApplication()
                 .withLoanToValueRatio(0.75)
                 .withAnnualIncome(50000)
@@ -44,6 +45,7 @@ class LoanPreQualifierTest {
     @Test
     @DisplayName("Should decline when credit score is too low")
     void shouldDeclineWhenCreditScoreInsufficient() {
+        // Given
         LoanApplication application = aValidApplication()
                 .withCreditScore(580)
                 .build();
@@ -60,6 +62,7 @@ class LoanPreQualifierTest {
     @Test
     @DisplayName("Should decline when debt-to-income ratio is too high")
     void shouldDeclineWhenDebtToIncomeTooHigh() {
+        // Given
         LoanApplication application = aValidApplication()
                 .withDebtToIncomeRatio(0.50) // Above 0.43 threshold
                 .build();
@@ -76,6 +79,7 @@ class LoanPreQualifierTest {
     @Test
     @DisplayName("Should decline when loan-to-value ratio is too high")
     void shouldDeclineWhenLoanToValueTooHigh() {
+        // Given
         LoanApplication application = aValidApplication()
                 .withLoanToValueRatio(0.90) // Above 0.80 threshold
                 .build();
@@ -92,6 +96,7 @@ class LoanPreQualifierTest {
     @Test
     @DisplayName("Should decline when income is insufficient")
     void shouldDeclineWhenIncomeInsufficient() {
+        // Given
         LoanApplication application = aValidApplication()
                 .withAnnualIncome(25000) // Below 30000 threshold
                 .build();
@@ -108,6 +113,7 @@ class LoanPreQualifierTest {
     @Test
     @DisplayName("Should decline with multiple reasons when multiple criteria fail")
     void shouldDeclineWithMultipleReasons() {
+        // Given
         LoanApplication application = aValidApplication()
                 .withCreditScore(550) // Too low
                 .withDebtToIncomeRatio(0.50) // Too high
@@ -132,6 +138,7 @@ class LoanPreQualifierTest {
     @Test
     @DisplayName("Should approve when at exact threshold values")
     void shouldApproveAtThresholdValues() {
+        // Given
         LoanApplication application = aValidApplication()
                 .withCreditScore(600) // Minimum acceptable
                 .withDebtToIncomeRatio(0.43) // Maximum acceptable
@@ -150,6 +157,7 @@ class LoanPreQualifierTest {
     @Test
     @DisplayName("Should calculate LTV automatically when loan amount and property value provided")
     void shouldCalculateLTVFromLoanAndPropertyValues() {
+        // Given
         double loanAmount = 160000;
         double propertyValue = 200000;
         double expectedLTV = 0.80;
